@@ -1,0 +1,41 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "nix_eval_jobs"
+version = "0.1.0"
+authors = [{ name = "Connor Baker", email = "ConnorBaker01@gmail.com" }]
+requires-python = ">=3.11"
+license = { text = "BSD-3-Clause" }
+description = "nix-eval-jobs but worse"
+dependencies = ["annotated-types", "pydantic", "rich"]
+
+[project.optional-dependencies]
+dev = ["ruff"]
+
+[project.scripts]
+nix-eval-jobs-python = "nix_eval_jobs.cmd:main.main"
+
+[project.urls]
+Homepage = "https://github.com/ConnorBaker/cuda-packages/tree/main/redist/scripts/cuda-redist"
+
+[tool.ruff]
+line-length = 120
+
+[tool.ruff.format]
+preview = true
+
+[tool.ruff.lint]
+preview = true
+select = ["F", "E", "W", "I", "PL", "FURB", "LOG", "RUF", "G", "TID"]
+ignore = [
+  # Ignore functions with many arguments (I like currying)
+  "PLR0913",
+]
+
+[tool.pyright]
+include = ["./nix_eval_jobs"]
+pythonVersion = "3.11"
+pythonPlatform = "Linux"
+typeCheckingMode = "strict"
