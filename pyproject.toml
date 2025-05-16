@@ -18,7 +18,7 @@ dev = ["ruff"]
 nix-eval-jobs-python = "nix_eval_jobs.cmd:main.main"
 
 [project.urls]
-Homepage = "https://github.com/ConnorBaker/cuda-packages/tree/main/redist/scripts/cuda-redist"
+Homepage = "https://github.com/ConnorBaker/nix-eval-jobs-python"
 
 [tool.ruff]
 line-length = 120
