@@ -6,10 +6,7 @@
     };
     nixpkgs.url = "github:nixos/nixpkgs";
     git-hooks-nix = {
-      inputs = {
-        nixpkgs-stable.follows = "nixpkgs";
-        nixpkgs.follows = "nixpkgs";
-      };
+      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:cachix/git-hooks.nix";
     };
     treefmt-nix = {
