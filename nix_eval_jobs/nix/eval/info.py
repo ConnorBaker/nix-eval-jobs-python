@@ -106,9 +106,9 @@ class NixEvalResultGetInfo(PydanticObject, alias_generator=to_camel):
         attr: str
         attr_path: Sequence[str]
         include: bool
-        name: None | str = None
-        drv_path: None | str = None
-        system: None | str = None
+        name: str | None = None
+        drv_path: str | None = None
+        system: str | None = None
         recurse: bool
 
     stats: NixEvalStats
