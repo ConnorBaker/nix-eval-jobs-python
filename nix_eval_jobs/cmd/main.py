@@ -104,10 +104,10 @@ def main() -> None:
         SyncManager() as manager,
         ProcessPoolExecutor(max_workers=args.jobs) as executor,
     ):
-        discover_progress = progress.add_task("Discovered")
-        excluded_progress = progress.add_task("Excluded")
-        eval_progress = progress.add_task("Evaluated")
-        completed_progress = progress.add_task("Completed")
+        discover_progress = progress.add_task("Discovered", total=None)
+        excluded_progress = progress.add_task("Excluded", total=None)
+        eval_progress = progress.add_task("Evaluated", total=None)
+        completed_progress = progress.add_task("Completed", total=None)
 
         num_dict = manager.dict(
             discovered=1,
@@ -128,7 +128,7 @@ def main() -> None:
             progress.update(
                 excluded_progress,
                 completed=num_excluded,
-                total=num_discovered - num_evaluated,
+                total=None,
             )
             progress.update(
                 eval_progress,
