@@ -34,7 +34,7 @@ def eval(flakeref: str, attr_path: Iterable[str], apply_expr: str) -> RawNixEval
                 "nix",
                 "eval",
                 # Configuration options
-                "--no-allow-import-from-derivation",
+                # "--no-allow-import-from-derivation",
                 "--no-allow-unsafe-native-code-during-evaluation",
                 "--no-eval-cache",
                 "--pure-eval",
