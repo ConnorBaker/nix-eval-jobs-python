@@ -1,7 +1,6 @@
 {
   annotated-types,
   buildPythonPackage,
-  flit-core,
   lib,
   nixVersions,
   pydantic,
@@ -9,6 +8,7 @@
   pythonAtLeast,
   rich,
   ruff,
+  setuptools,
 }:
 let
   inherit (lib.fileset) toSource unions;
@@ -26,21 +26,19 @@ let
         ./nix_eval_jobs
       ];
     };
-    build-system = [ flit-core ];
+    build-system = [ setuptools ];
     dependencies = [
       annotated-types
       pydantic
       rich
     ];
-    propagatedBuildInputs = [
-      nixVersions.latest
-    ];
+    propagatedBuildInputs = [ nixVersions.latest ];
     pythonImportsCheck = [ finalAttrs.pname ];
     nativeCheckInputs = [
       pyright
       ruff
     ];
-    passthru.optional-dependencies.dev = [
+    optional-dependencies.dev = [
       pyright
       ruff
     ];
